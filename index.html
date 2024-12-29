@@ -19,13 +19,36 @@
             padding: 10px 20px;
             text-align: center;
         }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #0056b3;
+            padding: 10px;
+        }
+        nav button {
+            background: white;
+            color: #0056b3;
+            border: none;
+            margin: 0 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        nav button:hover {
+            background: #ddd;
+        }
         section {
+            display: none;
             padding: 20px;
             margin: 20px auto;
             max-width: 800px;
             background: white;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        section.active {
+            display: block;
         }
         h1, h2 {
             color: #007BFF;
@@ -45,6 +68,13 @@
             color: #007BFF;
         }
     </style>
+    <script>
+        function showSection(id) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -52,23 +82,19 @@
         <p>Safer streets for Cyclists and Pedestrians</p>
     </header>
 
-    <section>
-        <h2>Current Challenges</h2>
-        <ul>
-            <li>Unsafe roads for cyclists and pedestrians</li>
-            <li>Poorly marked crosswalks</li>
-            <li>Dangerous intersections</li>
-        </ul>
+    <nav>
+        <button onclick="showSection('about')">About Us</button>
+        <button onclick="showSection('projects')">Projects</button>
+        <button onclick="showSection('contact')">Contact</button>
+    </nav>
+
+    <section id="about" class="active">
+        <h2>About Us</h2>
+        <p>Our advocacy promotes safer urban cycling by addressing key challenges such as unsafe roads, poorly marked crosswalks, and dangerous intersections. Through dedicated bike lanes, improved infrastructure, and community engagement, we aim to create sustainable and cyclist-friendly cities that benefit everyone.</p>
     </section>
 
-    <section>
-        <h2>Solutions for Safety</h2>
-        <ul>
-            <li>Dedicated bike lanes</li>
-            <li>Improved intersection safety</li>
-            <li>Bike parking and storage</li>
-        </ul>
-        <p>Additional efforts include:</p>
+    <section id="projects">
+        <h2>Projects</h2>
         <ul>
             <li>Organizing workshops on cycling safety and infrastructure</li>
             <li>Engaging city planners for better cycling infrastructure</li>
@@ -76,26 +102,11 @@
         </ul>
     </section>
 
-    <section>
-        <h2>Why Advocate for Safe Cycling?</h2>
-        <ul>
-            <li>Improves public health</li>
-            <li>Reduces traffic congestion</li>
-            <li>Creates sustainable urban spaces</li>
-        </ul>
-        <p>Smart cities lead to safer cycling!</p>
-    </section>
-
-    <section>
-        <h2>References</h2>
-        <ul>
-            <li><a href="https://www.nhtsa.gov/road-safety/bicyclists" target="_blank">NHTSA - Road Safety for Cyclists</a></li>
-            <li><a href="https://www.tandfonline.com/doi/abs/10.1080/01441640701806612" target="_blank">Transportation Research</a></li>
-            <li><a href="https://www.copenhagenize.eu/" target="_blank">Copenhagenize</a></li>
-            <li><a href="https://www.stronggo.com/blog/6-benefits-bike-lanes" target="_blank">StrongGo - Benefits of Bike Lanes</a></li>
-            <li><a href="https://thecityfix.com/blog/4-ways-to-design-safe-streets-for-cyclists/" target="_blank">The City Fix</a></li>
-            <li><a href="https://www.peopleforbikes.org/statistics/economic-benefits" target="_blank">People for Bikes - Economic Benefits</a></li>
-        </ul>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: info@urbancyclingadvocacy.com</p>
+        <p>Phone: +1-234-567-890</p>
+        <p>Address: 123 Advocacy Lane, Cycle City, CC 12345</p>
     </section>
 
     <footer>
